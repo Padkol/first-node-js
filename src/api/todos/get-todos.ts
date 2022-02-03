@@ -15,7 +15,7 @@ export const getTodos: RequestHandler = async (req, res) => {
       .limit(limit)
       .toArray();
 
-    const total = Math.ceil((await todosCollection.countDocuments()) / limit);
+    const total = limit ? Math.ceil((await todosCollection.countDocuments()) / limit) : 1;
 
     res.send({ data: todos, total });
 
