@@ -1,5 +1,6 @@
 import { Router } from 'express';
 
+import { getTodo } from './get-todo';
 import { addTodo } from './add-todo';
 import { getTodos } from './get-todos';
 import { dbClient } from '../../helpers';
@@ -7,6 +8,8 @@ import { dbClient } from '../../helpers';
 export const todosRouter = Router();
 
 todosRouter.get('/todos', getTodos);
+
+todosRouter.get(`/todos/:id`, getTodo);
 
 todosRouter.post('/todos', addTodo);
 
