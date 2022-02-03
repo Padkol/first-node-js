@@ -10,7 +10,7 @@ export const config = {
   database: process.env.DATABASE_NAME,
   mongoUrl: `mongodb+srv://${process.env.DATABASE_USERNAME}:${process.env.DATABASE_PASSWORD}@${process.env.DATABASE_NAME}`,
   env,
-  workingPort: process.env.PORT || 3000,
-  apiUrl: env === 'local' ? `http://localhost:${process.env.PORT || 3000}` : 'deployed',
+  workingPort: process.env.PORT || 3001,
+  apiUrl: env === 'local' ? `http://localhost:${process.env.PORT || 3001}` : 'deployed',
   sessionSecretKey: process.env.SESSION_SECRET_KEY || 'keyboard cats here',
 };

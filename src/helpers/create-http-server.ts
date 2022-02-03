@@ -10,6 +10,8 @@ export async function startHttpServer(app: Express) {
   try {
     await initDb();
 
+    app.use(cors());
+
     app.use(express.json());
 
     app.use(express.urlencoded({ extended: true }));
@@ -19,8 +21,6 @@ export async function startHttpServer(app: Express) {
     app.use(bodyParser.urlencoded({ extended: true }));
 
     app.use(todosRouter);
-
-    app.use(cors());
 
     app.listen(config.workingPort, () => {
       console.log(`Server has been started on ${config.workingPort} port`);

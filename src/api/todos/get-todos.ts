@@ -12,7 +12,7 @@ export const getTodos: RequestHandler = async (req, res) => {
 
     const todos = await todosCollection
       .find()
-      .skip((page + 1) * limit)
+      .skip((page - 1) * limit)
       .limit(limit)
       .toArray();
 
