@@ -11,6 +11,8 @@ todosRouter.get('/todos', getTodos);
 
 todosRouter.get(`/todos/:id`, getTodo);
 
+todosRouter.delete(`/todos/:id`);
+
 todosRouter.post('/todos', addTodo);
 
 export const todosCollection = dbClient.db().collection('todos');

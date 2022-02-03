@@ -24,7 +24,9 @@ export const getTodo: RequestHandler = async (req, res) => {
     console.log('[TODOS] get one successful');
   } catch (err) {
     console.log('[TODOS] get one error');
+
     res.status(500);
+
     console.error(err);
   }
 };
