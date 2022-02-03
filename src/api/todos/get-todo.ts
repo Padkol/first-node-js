@@ -11,12 +11,16 @@ export const getTodo: RequestHandler = async (req, res) => {
 
     if (!idTodo) {
       res.status(400);
+      res.send('please add normal id');
+      return;
     }
 
     const todo = await todosCollection.findOne({ _id: new ObjectId(idTodo) });
 
     if (!todo) {
       res.status(404);
+      res.send('fake id');
+      return;
     }
 
     res.send(todo);
@@ -26,6 +30,7 @@ export const getTodo: RequestHandler = async (req, res) => {
     console.log('[TODOS] get one error');
 
     res.status(500);
+    res.send('smt happened');
 
     console.error(err);
   }

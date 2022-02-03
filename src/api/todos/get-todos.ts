@@ -25,6 +25,7 @@ export const getTodos: RequestHandler = async (req, res) => {
     console.log('[TODOS] get error');
 
     res.status(500);
+    res.send('smt happened');
 
     console.error(err);
   }
