@@ -6,12 +6,13 @@ export const getTodos: RequestHandler = async (req, res) => {
   try {
     console.log('[TODOS] trying get todos');
 
-    let page = Number(req.query.page) || 0;
+    let page = Number(req.query.page) || 1;
+
     let limit = Number(req.query.limit) || 10;
 
     const todos = await todosCollection
       .find()
-      .skip(page * limit)
+      .skip((page + 1) * limit)
       .limit(limit)
       .toArray();
 

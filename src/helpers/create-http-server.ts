@@ -3,8 +3,8 @@ import bodyParser from 'body-parser';
 import express, { Express } from 'express';
 
 import { config } from '../config';
-import { todosRouter } from '../api';
 import { initDb } from './init-db';
+import { todosRouter } from '../api';
 
 export async function startHttpServer(app: Express) {
   try {
@@ -20,12 +20,7 @@ export async function startHttpServer(app: Express) {
 
     app.use(todosRouter);
 
-    app.use(
-      cors({
-        origin: true,
-        credentials: true,
-      }),
-    );
+    app.use(cors());
 
     app.listen(config.workingPort, () => {
       console.log(`Server has been started on ${config.workingPort} port`);
