@@ -15,8 +15,6 @@ export const getTodo: RequestHandler = async (req, res) => {
 
     const todo = await todosCollection.findOne({ _id: new ObjectId(idTodo) });
 
-    console.log(todo, idTodo);
-
     if (!todo) {
       res.status(404);
     }
