@@ -1,14 +1,14 @@
 import cors from 'cors';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import express, { Express } from 'express';
 
 import { config } from '../config';
 import { todosRouter } from '../api';
+import { initDb } from './init-db';
 
 export async function startHttpServer(app: Express) {
   try {
-    await mongoose.connect(config.mongoUrl);
+    await initDb();
 
     app.use(express.json());
 
