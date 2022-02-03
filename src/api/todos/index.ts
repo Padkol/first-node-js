@@ -1,7 +1,7 @@
-import {Router} from "express";
+import { Router } from 'express';
 
-import {getTodos} from "./get-todos";
+import { getTodos } from './get-todos';
 
 export const todosRouter = Router();
 
-todosRouter.get('/',getTodos)
+todosRouter.get('/', getTodos);
