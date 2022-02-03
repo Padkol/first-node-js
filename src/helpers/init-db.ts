@@ -2,8 +2,6 @@ import { MongoClient } from 'mongodb';
 
 import { config } from '../config';
 
-console.log('mongourl', config.mongoUrl);
-
 export const dbClient = new MongoClient(config.mongoUrl, {
   connectTimeoutMS: 30000,
   keepAlive: true,
